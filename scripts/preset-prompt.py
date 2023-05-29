@@ -1,5 +1,6 @@
 import modules.scripts as scripts
 import gradio as gr
+from modules.processing import process_images
 
 print(scripts.basedir())
 
@@ -41,7 +42,9 @@ class ExtensionTemplateScript(scripts.Script):
         # proc = process_images(p)
         # TODO: add image edit process via Processed object proc
         print(checkbox)
-        return 1
+
+        proc = process_images(p)
+        return proc
 
 
 
