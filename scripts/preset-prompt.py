@@ -41,9 +41,10 @@ class ExtensionTemplateScript(scripts.Script):
         # TODO: get UI info through UI object angle, checkbox
         # proc = process_images(p)
         # TODO: add image edit process via Processed object proc
-        print(checkbox)
+        
 
         proc = process_images(p)
+        print(proc.seed)
         return proc
 
 
