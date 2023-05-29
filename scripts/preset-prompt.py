@@ -1,6 +1,8 @@
 import modules.scripts as scripts
 import gradio as gr
 
+print(scripts.basedir())
+
 
 class ExtensionTemplateScript(scripts.Script):
   # Extension title in menu UI
