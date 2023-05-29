@@ -1,6 +1,9 @@
 import modules.scripts as scripts
 import gradio as gr
+
+from modules import images
 from modules.processing import process_images
+from modules.shared import opts
 
 print(scripts.basedir())
 
@@ -44,7 +47,17 @@ class ExtensionTemplateScript(scripts.Script):
         
 
         proc = process_images(p)
-        print(proc.seed)
+
+        # rotate and flip each image in the processed images
+        # use the save_images method from images.py to save
+        # them.
+        for i in range(len(proc.images)):
+
+            
+            basename = "cemcoe"
+            images.save_image(proc.images[i], p.outpath_samples, basename,
+            proc.seed + i, proc.prompt, opts.samples_format, info= proc.info, p=p)
+
         return proc
 
 
